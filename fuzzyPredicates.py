@@ -287,7 +287,7 @@ if __name__ == '__main__':
 
     # group plot
     inline_result = group_dynamic(trajectories, m_frames)
-    plt.plot(list(range(len(trajectories[0]) - m_frames)), inline_result)   # '''
+    plt.plot(list(range(len(trajectories[0]) - m_frames)), inline_result)
     plt.title("Group Predicate")
     plt.legend(tracked_individuals)
     plt.xticks(range(0, len(data[tracked_individuals[0]]) - m_frames, 5), list(data[tracked_individuals[0]])[m_frames::5], rotation=90)

@@ -269,8 +269,8 @@ if __name__ == '__main__':
 
         with open(path) as json_file:
             data = json.load(json_file)
-            for i in data[tracked_individual]:
-                trajectory.append(data[tracked_individual][i])
+            for ind in data[tracked_individual]:
+                trajectory.append(data[tracked_individual][ind])
             trajectories.append(trajectory)
 
     # individual plot
@@ -282,7 +282,8 @@ if __name__ == '__main__':
         plt.plot(list(range(len(trajectory) - m_frames)), inline_result)
     plt.title("Individual Predicate")
     plt.legend(tracked_individuals)
-    plt.xticks(range(0, len(data[tracked_individuals[0]]) - m_frames, 5), list(data[tracked_individuals[0]])[m_frames::5], rotation=90)
+    plt.xticks(range(0, len(data[tracked_individuals[0]]) - m_frames, 5),
+               list(data[tracked_individuals[0]])[m_frames::5], rotation=90)
     plt.show()
 
     # group plot
@@ -290,5 +291,6 @@ if __name__ == '__main__':
     plt.plot(list(range(len(trajectories[0]) - m_frames)), inline_result)
     plt.title("Group Predicate")
     plt.legend(tracked_individuals)
-    plt.xticks(range(0, len(data[tracked_individuals[0]]) - m_frames, 5), list(data[tracked_individuals[0]])[m_frames::5], rotation=90)
+    plt.xticks(range(0, len(data[tracked_individuals[0]]) - m_frames, 5),
+               list(data[tracked_individuals[0]])[m_frames::5], rotation=90)
     plt.show()

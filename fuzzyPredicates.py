@@ -276,7 +276,7 @@ if __name__ == '__main__':
     # individual plot
     for trajectory in trajectories:
 
-        inline_result = individual_velocity(trajectory, m_frames)
+        inline_result = inline(trajectory, m_frames, scale=px_to_cm)
         # print(direction(track, m_frames))
 
         plt.plot(list(range(len(trajectory) - m_frames)), inline_result)
@@ -287,10 +287,10 @@ if __name__ == '__main__':
     plt.show()
 
     # group plot
-    inline_result = group_dynamic(trajectories, m_frames)
+    '''inline_result = group_dynamic(trajectories, m_frames)
     plt.plot(list(range(len(trajectories[0]) - m_frames)), inline_result)
     plt.title("Group Predicate")
     plt.legend(tracked_individuals)
     plt.xticks(range(0, len(data[tracked_individuals[0]]) - m_frames, 5),
                list(data[tracked_individuals[0]])[m_frames::5], rotation=90)
-    plt.show()
+    plt.show()'''

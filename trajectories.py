@@ -11,16 +11,14 @@ saving = False
 xml_path = r"Data/Video1/annotations.xml"
 image_path = r'Data/Video1/images/frame_000000.PNG'
 image_pts = np.array([[204, 94], [350, 90], [213, 355], [547, 330]])
+frames_in_video = 146
+
+json_path = r"Simulation//simulated_tracks.json"
 
 
 # program...
 
 warped, M, maxWidth, maxHeight = transform.four_point_transform(image_path, image_pts)
-xtl = ytl = xbr = ybr = 0
-
-frames = []
-x_points = []
-y_points = []
 
 xml_doc = minidom.parse(xml_path)
 
@@ -52,7 +50,7 @@ if saving:
 cord_list = []
 
 circle = warped
-for frame in range(146):
+for frame in range(frames_in_video):
     name = r'Data/Video1/images/frame_000' + str(frame).zfill(3) + '.PNG'
     warped, M, maxWidth, maxHeight = transform.four_point_transform(name, image_pts)
     for pnt in trajectory_dict.values():
